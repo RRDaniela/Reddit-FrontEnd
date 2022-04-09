@@ -10,18 +10,22 @@ import { PostService } from 'src/app/shared/services/post.service';
 })
 export class PostsComponent implements OnInit {
   posts: any = [];
-  voteCount = 0;
+  voteCount: number = 0;
+  counterUp: number = 0;
+  counterDown: number = 0;
   loading: boolean = false;
   constructor(private postService: PostService, private router: Router) {}
 
   ngOnInit(): void {
     this.getPosts();
   }
+    
 
   getPosts() {
     this.loading = true;
     this.postService.getAllPosts().subscribe({
       next: (value) => {
+        console.log(value);
         this.posts = value;
         this.loading = false;
       },
@@ -46,4 +50,5 @@ export class PostsComponent implements OnInit {
       },
     });
   }
+
 }

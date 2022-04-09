@@ -32,6 +32,15 @@
         >Log in</a
       >
       <a
+      *ngIf="!isLoggedIn()"
+      routerLink="create-subreddint"
+      (mouseenter)="mouseEnter()"
+      (mouseleave)="mouseLeave()"
+      style="text-decoration: none"
+      class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
+      >Create subreddint</a
+    >
+      <a
         *ngIf="isLoggedIn()"
         routerLink="login"
         (mouseenter)="mouseEnter()"
@@ -42,7 +51,7 @@
       >
       <form [formGroup]="form" (submit)="search()">
         <input formControlName="search" type="text" placeholder="Search..." />
-        <button>submit</button>
+        <button style="text-decoration: none" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white searchB">submit</button>
       </form>
     </div>
   </div>

@@ -36,6 +36,7 @@ export class SubreddintsService {
   }
 
   getPosts(name: string) {
+    console.log(name);
     return this.http.get<IPost[]>(`http://localhost:3000/subreddints/${name}/posts`);
   }
 

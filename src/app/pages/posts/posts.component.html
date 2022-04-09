@@ -9,14 +9,14 @@
         <ul>
             <li *ngFor="let element of posts" class="postContainer">
             <h1>{{element.title}}</h1>
+            <a [routerLink]="['/subreddint' , element.subreddint.name]">r/{{element.subreddint.name}}</a>
             <p>{{element.body}}</p>
             <br>
-            <a class="voteCounter">-{{element.downvotes}}</a>
             <button (click)="downvote(element._id)">⇩</button>
-            <a class="voteCounter">{{element.upvotes}}</a>
+            <a class="voteCounter">{{element.upvotes - element.downvotes}}</a>
             <button (click)="upvote(element._id)">⇧</button>
         </li>
-        </ul>
+        </ul> 
         
     </div>
 </div>
