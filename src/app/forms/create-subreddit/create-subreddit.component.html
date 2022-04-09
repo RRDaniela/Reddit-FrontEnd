@@ -9,19 +9,19 @@
 <body>
     <div class="gdiv">
     <div class="form">
+        <h1>Create a community</h1>
+        <hr>  
         <form [formGroup]="form" (submit)="sendData()">
-            <h1>Create a community</h1>
-            <hr>  
-            <div>
-                <label for="name">Name
-                    <div>
+            <div class="w-100">
+                <label for="name" class="w-100">Name
+                    <div >
                         <input formControlName="name" type="text"  placeholder="The name of your community, it can't be changed.">
                     </div>
                 </label>
             </div>
             <hr class="formseparator">
             <div>
-                <label for="description">Description 
+                <label for="description" class="w-100">Description 
                     <div>
                         <textarea type="text" formControlName="description" placeholder="Give a brief description of your subreddint."></textarea>
                     </div>
@@ -29,13 +29,13 @@
             </div>
             <hr class="formseparator">
             <div>
-                <label class="header-upload-file" for="header">Header
+                <label class="header-upload-file" for="header" >Header
                     <div>
                         <input type="file" accept="image/*, .jpg">
                     </div>
                 </label>
             </div>
-                <button>Submit</button>
+                <button type="submit" >Submit</button>
         </form>
     </div>
 

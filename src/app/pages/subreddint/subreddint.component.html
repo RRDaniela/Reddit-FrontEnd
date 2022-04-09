@@ -12,9 +12,10 @@
                     <h1>{{element.title}}</h1>
                     <p>{{element.body}}</p>
                     <br>
-                    <button (click)="downvote()">⇩</button>
+                    <a class="voteCounter">-{{element.downvotes}}</a>
+                    <button (click)="downvote(element._id)">⇩</button>
                     <a class="voteCounter">{{element.upvotes}}</a>
-                    <button (click)="upvote()">⇧</button>
+                    <button (click)="upvote(element._id)">⇧</button>
                 </li>
                 </ul>
                 

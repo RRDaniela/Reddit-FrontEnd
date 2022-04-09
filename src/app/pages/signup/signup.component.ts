@@ -5,6 +5,7 @@ import { RegisterService } from 'src/app/shared/services/register.service';
 //import [ FormGroup, Validators, Form]
 
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -21,9 +22,13 @@ export class SignupComponent implements OnInit {
   }
 
   credentials:any = {};
+  error: any = null;
 
-  constructor(private formBuilder: FormBuilder, private registerService:RegisterService,
-    private router: Router) {
+  constructor(
+    private formBuilder: FormBuilder, 
+    private userService: UserService,
+    private router: Router
+    ) {
     this.form = this.formBuilder.group({
       'username': ['', Validators.required],
       'email': ['', [Validators.required, Validators.email]],
@@ -47,36 +52,19 @@ export class SignupComponent implements OnInit {
 
   sendData(){
     if(this.form.valid){
-      console.log("Account created for: " + this.form.value.username);
-      this.router.navigateByUrl('/posts');
-    }else{
-      console.log("form invalid")
+      this.userService.createAccount({ email: this.form.value.email, password: this.form.value.password }).subscribe({
+        next: (value) => {
+          this.router.navigateByUrl('/login');
+        },
+        error: (error) => {
+          this.error = error;
+        }
+      });
     }
   }
 
   //submit
-  /*sendData(){
-    //enviar datos
-    if(this.form.valid){
-      console.log("Register user", this.form.value);
-      this.registerService.register(this.form.value).subscribe({
-        next: (value) => {
-          console.log(value)
-        },
-        complete: () => {
-          this.router.navigate(['/login']);
-        },
-        error: (err) => {console.error(err)
-          this.toggleEmailInUse();
-        }
-      });
-    
-    }else{
-    //datos incompletos
-      console.log('error, faltan datos.', this.form)
-    }
-  }
-*/
+
   register(){
     
   }

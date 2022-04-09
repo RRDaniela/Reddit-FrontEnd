@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { SubreddintsService } from 'src/app/shared/services/subreddints.service';
 
 
 @Component({
@@ -13,7 +14,11 @@ export class CreateSubredditComponent implements OnInit {
   form: FormGroup;
 
 
-  constructor(private formBuilder: FormBuilder, private router:Router) {
+  constructor(
+    private formBuilder: FormBuilder, 
+    private router:Router,
+    private subreddintService: SubreddintsService
+    ) {
     this.form = this.formBuilder.group({
       'name': ['',Validators.minLength(2)],
       'description':['',  Validators.minLength(24)]
@@ -25,11 +30,11 @@ export class CreateSubredditComponent implements OnInit {
 
   sendData(){
     if(this.form.valid){
-      console.log("You should add this to Mongo" + this.form.value.name + this.form.value.description);
-      //You should call the service here 2.
-      this.router.navigate([`subreddint/${this.form.value.name}`]);
-    }else{
-      console.log("form invalid")
+      this.subreddintService.create(this.form.value).subscribe({
+        next: (value) => {
+          this.router.navigate([`subreddint/${this.form.value.name}`]);
+        }
+      });
     }
   }
 

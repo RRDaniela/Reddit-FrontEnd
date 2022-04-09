@@ -1,44 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div class="gdiv">
-    <div class="form">
-        <form [formGroup]="form" (submit)="sendData()">
-            <h1>Create a post</h1>
-            <hr>  
-            <div>
-                <label for="title">Title
-                    <div>
-                        <input type="text" placeholder="Title of your post">
-                    </div>
-                </label>
-            </div>
-            <hr class="formseparator">
-            <div>
-                <label for="description">Body 
-                    <div>
-                        <textarea type="text" placeholder="text body of your post"></textarea>
-                    </div>
-                </label>
-            </div>
-            <hr class="formseparator">
-            <div>
-                <label class="image-upload-file" for="image">Upload a file
-                    <div>
-                        <input type="file" accept="image/*, .jpg">
-                    </div>
-                </label>
-            </div>
-                <button>Post</button>
-        </form>
-    </div>
-
-    </div>    
-</body>
-</html>
+<div class="gdiv">
+  <div class="form">
+    <form [formGroup]="form" (submit)="sendData()">
+      <h1>Create a post</h1>
+      <hr />
+      <div>
+        <label for="title" class="w-100" >Title
+          <div>
+            <input formControlName="title" type="text" placeholder="Title of your post" />
+          </div>
+        </label>
+      </div>
+      <hr class="formseparator" />
+      <div>
+        <label for="description" class="w-100"
+          >Body
+          <div>
+            <textarea
+              formControlName="body"
+              type="text"
+              placeholder="text body of your post"
+            ></textarea>
+          </div>
+        </label>
+      </div>
+      <hr class="formseparator" />
+      <div>
+        <label class="image-upload-file" for="image"
+          >Upload a file
+          <div>
+            <input type="file" accept="image/*, .jpg" />
+          </div>
+        </label>
+      </div>
+      <button type="submit">Post</button>
+    </form>
+  </div>
+</div>

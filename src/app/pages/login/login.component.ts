@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/shared/services/user.service';
 
 
 
@@ -12,8 +13,13 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
+  error: any;
 
-  constructor(private formBuilder: FormBuilder, private router:Router) {
+  constructor(
+    private formBuilder: FormBuilder, 
+    private router:Router,
+    private userService: UserService,
+    ) {
     this.form = this.formBuilder.group({
       'email': ['',Validators.email],
       'password': ['', Validators.minLength(8)]
@@ -25,10 +31,16 @@ export class LoginComponent implements OnInit {
 
   login(){
     if(this.form.valid){
-      console.log("Sesion iniciada para correo: " + this.form.value.email);
-      this.router.navigate([`posts`]);
-    }else{
-      console.log("form invalid")
+      
+      this.userService.login({ email: this.form.value.email, password: this.form.value.password }).subscribe({
+        next: (value) => {
+          this.router.navigate([`posts`]);  
+        },
+        error: (error) => {
+          this.error = error;
+        }
+      });
+
     }
   }
 

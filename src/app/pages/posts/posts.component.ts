@@ -1,3 +1,4 @@
+import { NumberFormatStyle } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostService } from 'src/app/shared/services/post.service';
@@ -5,39 +6,44 @@ import { PostService } from 'src/app/shared/services/post.service';
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.scss']
+  styleUrls: ['./posts.component.scss'],
 })
 export class PostsComponent implements OnInit {
-
   posts: any = [];
   voteCount = 0;
-  constructor(private postService: PostService, private router: Router) { }
+  loading: boolean = false;
+  constructor(private postService: PostService, private router: Router) {}
 
   ngOnInit(): void {
-    this.posts = this.getPosts();
+    this.getPosts();
   }
 
-  getPosts(){
+  getPosts() {
+    this.loading = true;
     this.postService.getAllPosts().subscribe({
       next: (value) => {
-        this.posts=value;
+        this.posts = value;
+        this.loading = false;
       },
       error: (err) => {
         console.log(err);
-      }
-    })
+        this.loading = false;
+      },
+    });
   }
 
-  upvote(){
-    this.voteCount += 1;
+  upvote(id: string) {
+    this.postService.upvote(id).subscribe({
+      next: (value) => {
+        this.getPosts();
+      },
+    });
   }
-  downvote(){
-    if(this.voteCount <= 1){
-      this.voteCount= 0
-    }
-    else{
-      this.voteCount -= 1;
-    }
+  downvote(id: string) {
+    this.postService.downvote(id).subscribe({
+      next: (value) => {
+        this.getPosts();
+      },
+    });
   }
-
 }
