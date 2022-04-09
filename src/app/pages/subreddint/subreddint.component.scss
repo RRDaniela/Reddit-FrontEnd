@@ -1,0 +1,48 @@
+.gdiv{
+    padding-top: 90px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #333;
+    color: white;
+    padding: 10% 7% 14% 7%;
+}
+
+
+.division{
+    height: 60px;
+    width: 100%;
+    background-color: rgb(79, 79, 210);
+    color: white;
+    padding:0;
+    margin:0;
+}
+
+.creator{
+    color: white;
+    outline: 2px solid white;
+    background-color: rgb(73, 73, 73);;
+    margin-left: 20px;
+    padding-left: 5px;
+    margin-right: 20px;
+    padding-right: 5px;
+}
+.createButton{
+    color: white;
+    width: 100%;
+}
+
+.creator:hover{
+    border-radius: 5px;
+    background-color: rgb(153, 153, 153);
+    
+}
+.Hbutton:hover{
+    border-radius: 5px;
+    background-color: rgb(153, 153, 153);
+    
+}
+.Hbutton{
+    
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(73, 73, 73);
+}

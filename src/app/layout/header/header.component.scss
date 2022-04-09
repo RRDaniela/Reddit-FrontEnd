@@ -1,0 +1,45 @@
+div{
+    height: 100%;
+    background-color: #333;
+    color: white;
+    line-height: 30px;
+    padding:0;
+    margin:0;
+
+}
+button{
+    margin-left: auto; 
+    margin-right: 10px;
+    border-radius: 3px;
+}
+h1{
+    padding: 1%;
+    line-height: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: fit-content;
+    display:inline-block;
+}
+
+button{
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 3px;
+
+}
+
+img{
+    padding: 1%;
+    max-width: 20%;
+    max-height: 20%;
+    float: right;
+}
+
+
+.headerImg{
+    display: inline-block;
+}
+
+.header{
+    width: 100%;
+    left: 0%;
+    right: 0%;
+}

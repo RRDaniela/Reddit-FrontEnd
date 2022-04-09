@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="gdiv">
+    <div class="form">
+        <form [formGroup]="form" (submit)="sendData()">
+            <h1>Create a community</h1>
+            <hr>  
+            <div>
+                <label for="name">Name
+                    <div>
+                        <input formControlName="name" type="text"  placeholder="The name of your community, it can't be changed.">
+                    </div>
+                </label>
+            </div>
+            <hr class="formseparator">
+            <div>
+                <label for="description">Description 
+                    <div>
+                        <textarea type="text" formControlName="description" placeholder="Give a brief description of your subreddint."></textarea>
+                    </div>
+                </label>
+            </div>
+            <hr class="formseparator">
+            <div>
+                <label class="header-upload-file" for="header">Header
+                    <div>
+                        <input type="file" accept="image/*, .jpg">
+                    </div>
+                </label>
+            </div>
+                <button>Submit</button>
+        </form>
+    </div>
+
+    </div>    
+</body>
+</html>

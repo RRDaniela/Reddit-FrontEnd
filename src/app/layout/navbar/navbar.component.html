@@ -1,0 +1,28 @@
+<div class="w3-top fixedElement" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()">
+    <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+     <!-- <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>-->
+      <img src="https://preview.redd.it/erilssnh17u71.png?auto=webp&s=640cdf9a51b2bd7a6d2f574b244fc9652ff710c6" alt="logo">
+      <div class="navElements">
+        <a routerLink="posts" style="text-decoration: none" class="titleR">Reddin't</a>
+        <a *ngIf="!isLoggedIn()" routerLink="signup" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()"  style="text-decoration: none" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Sign up</a>
+        <a *ngIf="!isLoggedIn()" routerLink="login" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()" style="text-decoration: none" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Log in</a>
+        <a *ngIf="isLoggedIn()" routerLink="login" (mouseenter)="mouseEnter()" (mouseleave)="mouseLeave()" style="text-decoration: none" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Mi Perfil</a>
+        <form [formGroup]="form" (submit)="search()">
+          <input formControlName="search" type="text" placeholder="Search..." >
+          <button>submit</button>
+        </form>
+          
+          
+       
+        
+        
+       
+      </div>
+      
+    </div>  
+  </div> 
+
+  <div (mouseover)="changeText=true" (mouseout)="changeText=false">
+    <span *ngIf="!changeText">Hide</span>
+    <span *ngIf="changeText">Show</span>
+  </div>

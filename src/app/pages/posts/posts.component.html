@@ -1,0 +1,17 @@
+<body>
+<div class="gdiv" >
+    <div>
+        <ul>
+            <li *ngFor="let element of posts" class="postContainer">
+            <h1>{{element.title}}</h1>
+            <p>{{element.body}}</p>
+            <br>
+            <button (click)="downvote()">⇩</button>
+            <a class="voteCounter">{{element.upvotes}}</a>
+            <button (click)="upvote()">⇧</button>
+        </li>
+        </ul>
+        
+    </div>
+</div>
+</body>
