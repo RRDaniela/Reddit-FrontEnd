@@ -2,9 +2,11 @@ import { NumberFormatStyle } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostService } from 'src/app/shared/services/post.service';
+import { MatCardModule } from '@angular/material/card';
+
 
 @Component({
-  selector: 'app-posts',
+  selector: 'app-posts', 
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.scss'],
 })

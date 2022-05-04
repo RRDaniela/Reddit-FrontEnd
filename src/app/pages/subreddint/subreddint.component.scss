@@ -20,8 +20,26 @@ ul {
     list-style-type: none;
 }
 
+.example-card {
+    max-width: 400px;
+  }
+
 
 .createButton{
+    color: white;
+    background-color: #333;
+    border: 1px white solid;
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 1%;
+    display: fit-content;
+    margin-left: 10px;
+}
+.joinButton{
     color: white;
     background-color: #333;
     border: 1px white solid;
@@ -50,6 +68,11 @@ ul {
 
 
 .createButton:hover{
+    border-radius: 5px;
+    background-color: rgb(153, 153, 153);
+    
+}
+.joinButton:hover{
     border-radius: 5px;
     background-color: rgb(153, 153, 153);
     

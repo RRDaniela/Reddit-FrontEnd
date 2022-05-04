@@ -14,7 +14,7 @@
         >Reddin't</a
       >
       <a
-        *ngIf="!isLoggedIn()"
+        *ngIf="!isLogged()"
         routerLink="signup"
         (mouseenter)="mouseEnter()"
         (mouseleave)="mouseLeave()"
@@ -23,7 +23,7 @@
         >Sign up</a
       >
       <a
-        *ngIf="!isLoggedIn()"
+        *ngIf="!isLogged()"
         routerLink="login"
         (mouseenter)="mouseEnter()"
         (mouseleave)="mouseLeave()"
@@ -32,7 +32,7 @@
         >Log in</a
       >
       <a
-      *ngIf="!isLoggedIn()"
+      *ngIf="isLogged()"
       routerLink="create-subreddint"
       (mouseenter)="mouseEnter()"
       (mouseleave)="mouseLeave()"
@@ -41,7 +41,7 @@
       >Create subreddint</a
     >
       <a
-        *ngIf="isLoggedIn()"
+        *ngIf="isLogged()"
         routerLink="login"
         (mouseenter)="mouseEnter()"
         (mouseleave)="mouseLeave()"
@@ -49,6 +49,15 @@
         class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
         >Mi Perfil</a
       >
+      <button mat-button
+      *ngIf="isLogged()"
+      (click)="logout()"
+      (mouseenter)="mouseEnter()"
+      (mouseleave)="mouseLeave()"
+      style="text-decoration: none"
+      class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
+      >Cerrar sesión
+      </button>
       <form [formGroup]="form" (submit)="search()">
         <input formControlName="search" type="text" placeholder="Search..." />
         <button style="text-decoration: none" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white searchB">submit</button>

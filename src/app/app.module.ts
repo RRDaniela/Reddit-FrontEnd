@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SubreddintComponent } from './pages/subreddint/subreddint.component';
 import { CreatePostComponent } from './pages/create-post/create-post.component';
 import { CreateSubredditComponent } from './forms/create-subreddit/create-subreddit.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './modules/material/material.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { CreateSubredditComponent } from './forms/create-subreddit/create-subred
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

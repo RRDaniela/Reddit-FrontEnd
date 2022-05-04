@@ -8,14 +8,19 @@
     <div class="posts" *ngIf="!loading" >
         <ul>
             <li *ngFor="let element of posts" class="postContainer">
-            <h1>{{element.title}}</h1>
-            <a [routerLink]="['/subreddint' , element.subreddint.name]">r/{{element.subreddint.name}}</a>
-            <p>{{element.body}}</p>
-            <br>
-            <button (click)="downvote(element._id)">⇩</button>
-            <a class="voteCounter">{{element.upvotes - element.downvotes}}</a>
-            <button (click)="upvote(element._id)">⇧</button>
-        </li>
+            <mat-card class="post-card">
+                <mat-card-title>{{element.title}}</mat-card-title>
+                <mat-card-subtitle><a [routerLink]="['/subreddint' , element.subreddint.name]">r/{{element.subreddint.name}}</a></mat-card-subtitle>
+                <mat-card-content>
+                    <p>{{element.body}}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button (click)="downvote(element._id)">⇩</button>
+                    <a class="voteCounter">{{element.upvotes - element.downvotes}}</a>
+                    <button mat-button (click)="upvote(element._id)">⇧</button>
+                </mat-card-actions>
+                </mat-card>    
+        </li> 
         </ul> 
         
     </div>

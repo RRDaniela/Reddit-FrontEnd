@@ -6,22 +6,31 @@
                 <div class="Hbutton">
                     <a [routerLink]="'/create-post/'+subreddintName" style="text-decoration: none" class="createButton">Create Post</a>
                 </div>
+                <div class="Hbutton">
+                    <button mat-flat-button  style="text-decoration: none" class="joinButton">Join</button>
+                    <!--<button mat-flat-button  style="text-decoration: none" class="joinButton">Leave</button>-->
+                   
+                </div>
                 <h1 class="title">{{subreddintName}}</h1>
                 <p>{{subreddintNamelow}}</p>
             </div>
             <hr>
-            <div>
+            <div>                
                 <ul>
                     <li *ngFor="let element of posts" class="postContainer">
-                    <h1 class="postT">{{element.title}}</h1>
-                    <p class="body">{{element.body}}</p>
-                    <br>
-                    <button (click)="downvote(element._id)">⇩</button>
-                    <a class="voteCounter">{{element.upvotes - element.downvotes}}</a>
-                    <button (click)="upvote(element._id)">⇧</button>
-                </li>
-                </ul>
-                
+                    <mat-card class="post-card">
+                        <mat-card-title>{{element.title}}</mat-card-title>
+                        <mat-card-content>
+                            <p>{{element.body}}</p>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <button mat-button (click)="downvote(element._id)">⇩</button>
+                            <a class="voteCounter">{{element.upvotes - element.downvotes}}</a>
+                            <button mat-button (click)="upvote(element._id)">⇧</button>
+                        </mat-card-actions>
+                        </mat-card>    
+                </li> 
+                </ul> 
             </div>                     
         </div>
     </div>

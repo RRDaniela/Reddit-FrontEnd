@@ -1,12 +1,21 @@
 <div class="gdiv">
     <form  [formGroup]="form" (submit)="login()">
+
+
         <div>
-            <label for="email">Email: </label>
-            <input formControlName="email" type="text" name="email" placeholder="Email" class="form-control input"> 
+            <mat-form-field appearance="fill">
+                <mat-label>Email: </mat-label>
+                <input matInput formControlName="email" type="text" name="email" placeholder="Email"> 
+                <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
         </div>
         <div>
-            <label for="password">Password: </label>
-            <input  formControlName="password" type="password" name="password" placeholder="Password" class="form-control input"> 
+            <mat-form-field appearance="fill">
+                <mat-label>Password: </mat-label>
+                <input matInput formControlName="password" type="password" name="password" placeholder="Password">
+                <mat-icon matSuffix>key</mat-icon>
+            </mat-form-field>
+             
         </div>
         <div class="mt-5">
             <button type="submit" class="btn btn-danger btn-block">Log in</button>
@@ -16,4 +25,3 @@
         </div>
         
     </form>
-</div>

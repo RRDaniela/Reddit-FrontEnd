@@ -21,6 +21,14 @@ export class SubreddintComponent implements OnInit {
     private subreddintService: SubreddintsService
   ) {}
 
+
+  Jflag: boolean = false;
+
+  toggleJoin(){
+    this.Jflag = !this.Jflag;
+  }
+
+
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       console.log(params['name']);
@@ -56,4 +64,6 @@ export class SubreddintComponent implements OnInit {
       },
     });
   }
+
+  
 }
