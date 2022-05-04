@@ -1,10 +1,19 @@
-html{
-    margin:0;
-    padding:0;
-    max-height:100vh;
-    overflow:hidden;
-  }
-  
-  body {
-    height: 100%;
-  }
+html {
+  margin: 0;
+  padding: 0;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  height: 100%;
+}
+
+
+.ml {
+    margin-left: 1rem;
+}
+
+.mr {
+    margin-right: 1rem;
+}

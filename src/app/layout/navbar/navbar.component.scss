@@ -1,62 +1,83 @@
-.w3-top {
-  background-color: #333;
-  padding: 2%;
-  width: 100%;
-  outline: 2px solid grey;
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #1a1a1b;
 }
 
-img {
-  max-width: 90px;
-  max-height: 90px;
-  float: left;
-}
-a {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+.nav-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5rem;
 }
 
-.titleR {
+.nav-logo-title {
+  margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: white;
   font-size: x-large;
+  margin-left: 0.5rem;
 }
 
-.navElements {
-  padding-top: 10px;
-  vertical-align: middle;
+.nav-logo-img {
+  width: 32px;
+  height: 32px;
 }
 
-.fixedElement {
-  background-color: #333;
-  position: sticky;
-  top: 0;
+.nav-search {
   width: 100%;
-  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.w3-bar-item {
-  width: fit-content;
-  height: fit-content;
+.nav-search > form {
+  margin: 0;
+}
+
+.nav-search--button {
+  all: unset;
+  background-color: #272729;
+  color: #D7DADC;
+  padding: 0.5rem;
+  border-radius: 0 0.5rem 0.5rem 0 ;
+  cursor: pointer;
+}
+
+input {
+  all: unset;
+  background-color: #272729;
+  color: #D7DADC;
+  width: 20rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  width: 35rem;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-links ul {
+  margin: 0;
+}
+
+.nav-links  ul  li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links ul  li a {
   color: white;
-  padding: 1%;
-  border-radius: 5px;
+  text-decoration: none;
+  font-family: Geneva, sans-serif;
+  margin-right: 0.4rem;
 }
 
-.w3-bar-item:hover {
-  width: fit-content;
-  height: fit-content;
-  border-radius: 5px;
-  background-color: gray;
-}
-
-.searchB{
-  padding: 0.1%;
-  background-color: gray;
-}
-
-.searchB:hover{
-  background-color: #333;
-}
-
-.searchF{
-  float: right;
-}

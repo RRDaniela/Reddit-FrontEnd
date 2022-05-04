@@ -7,10 +7,9 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-
   form: FormGroup;
   isLoggedIn: boolean=false;
   changeText : boolean=false;
@@ -20,23 +19,12 @@ export class NavbarComponent implements OnInit {
       this.isLoggedIn = status;
     })
     this.form = this.formBuilder.group({
-      'search': ['',Validators.minLength(1)]
-    })
-   }
-
-  ngOnInit(): void {
+      search: ['', Validators.minLength(1)],
+    });
   }
 
-  mouseEnter(){
-    console.log("mouse enter: ");
-    this.changeText=true;
-    
-  }
+  ngOnInit(): void {}
 
-  mouseLeave(){
-    console.log("mouse leave: ");
-    this.changeText=false;
-  }
 
   search(){
     this.router.navigate([`subreddint/${this.form.value.search}`])
