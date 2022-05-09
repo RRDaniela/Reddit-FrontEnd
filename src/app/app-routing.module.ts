@@ -7,6 +7,7 @@ import { PostsComponent } from './pages/posts/posts.component';
 import { SubreddintComponent } from './pages/subreddint/subreddint.component';
 import { CreatePostComponent } from './pages/create-post/create-post.component';
 import { CreateSubredditComponent } from './forms/create-subreddit/create-subreddit.component';
+import { PostComponent } from './pages/post/post.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'subreddint/:name', component: SubreddintComponent },
   { path: 'create-post/:name', component: CreatePostComponent },
   { path: 'create-subreddint', component:CreateSubredditComponent},
+  { path: 'posts/:id', component:PostComponent}
 
 ];
 

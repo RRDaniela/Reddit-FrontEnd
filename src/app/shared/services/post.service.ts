@@ -8,6 +8,14 @@ interface IPost {
   downvotes: number;
 }
 
+interface IComment {
+  body: string;
+  upvotes: number;
+  downvotes: number;
+  post: string;
+  owner: string;
+}
+
 interface ICreatePost {
   title: string;
   body: string;
@@ -22,6 +30,10 @@ export class PostService {
 
   getAllPosts() {
     return this.http.get<IPost[]>('http://localhost:3000/posts');
+  }
+  
+  getOnePost(id:string){
+    return this.http.get(`http://localhost:3000/posts/${id}`, {});
   }
 
   getSubreddintPosts(name: string) {

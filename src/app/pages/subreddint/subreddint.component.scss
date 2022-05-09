@@ -6,7 +6,6 @@
     padding: 2% 7% 2% 7%;
 }
 
-
 .division{
     height: 60px;
     width: 100%;
@@ -53,6 +52,10 @@ ul {
     display: fit-content;
 }
 
+.postBody{
+    text-align: justify;
+    text-justify: inter-word;
+}
 .postContainer{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 100%;
@@ -64,6 +67,9 @@ ul {
     margin-right: 20px;
     padding-right: 5px;
     margin-bottom: 1%;
+}
+.postContainer:hover{
+    border: 1px solid rgb(219, 102, 34);
 }
 
 
