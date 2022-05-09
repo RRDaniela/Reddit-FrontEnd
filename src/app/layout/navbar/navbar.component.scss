@@ -84,3 +84,9 @@ input {
   font-family: Geneva, sans-serif;
   margin-right: 0.4rem;
 }
+
+.w3-bar-item:hover {
+  border-radius: 5px;
+  padding: 3%;
+  background-color:rgb(88, 88, 88);
+}

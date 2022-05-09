@@ -1,5 +1,32 @@
-
 <div class="gdiv" >
-    <!--<mat-card-title>{{element.title}}</mat-card-title>-->
-    <h1>{{postTitle}}</h1>
+    <mat-card class="postContainer">
+        <mat-card-title>{{postTitle}}</mat-card-title>
+        <mat-card-subtitle>{{postOwner}}</mat-card-subtitle>
+        <p>{{postBody}}</p>
+        <br>
+        <li *ngFor="let element of comments" class="commentContainer">
+            <p>{{element.body}}</p>
+        </li>
+    </mat-card>
+
+    
+    
+    
 </div>
+
+<!--<div class="posts" *ngIf="!loading" >
+        <ul>
+            <li *ngFor="let element of posts" class="postContainer">
+            <mat-card class="post-card">
+                <mat-card-title><a [routerLink]="['/posts', element._id]">{{element.title}}</a></mat-card-title>
+                <mat-card-subtitle><a [routerLink]="['/subreddint' , element.subreddint.name]">r/{{element.subreddint.name}}</a></mat-card-subtitle>
+                <mat-card-actions>
+                    <button mat-button (click)="downvote(element._id)">⇩</button>
+                    <a class="voteCounter">{{element.upvotes - element.downvotes}}</a>
+                    <button mat-button (click)="upvote(element._id)">⇧</button>
+                </mat-card-actions>
+                </mat-card>    
+        </li>  
+        </ul> 
+        
+    </div>-->

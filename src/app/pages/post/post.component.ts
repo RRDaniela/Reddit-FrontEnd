@@ -10,11 +10,12 @@ import { IPost, SubreddintsService } from 'src/app/shared/services/subreddints.s
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
-  postTitle: string = '';
   postId: string='';
-  postBody:any='';
-  postTitleLow: string = '';
-  //comments: IComment[] = [];
+  post: any=[];
+  comments: any[] = [];
+  postOwner: string=''; 
+  postTitle: string='';
+  postBody: string ='';
 
   constructor(
     private router: Router,
@@ -24,21 +25,25 @@ export class PostComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      console.log(params['id']);
       this.postId = params['id'];
-     // this.getPost(this.postId);
-      console.log(this.postBody);
+      this.getPost(this.postId);
     });
   }
 
-  /*getPost(id:string){
+ 
+  getPost(id:string){
     this.postService.getOnePost(id).subscribe({
       next: (value) => {
-        this.postBody = value;
+        this.post= value;
+        this.postTitle = this.post._doc.title;
+        this.postBody = this.post._doc.body
+        this.comments = this.post.comments;
+        this.postOwner = this.post._doc.owner;
+        console.log(this.comments);
       },
       error:(err)=>{
         console.log(err);
       }
     })
-  }*/
+  }
 }
