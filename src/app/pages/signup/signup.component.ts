@@ -52,7 +52,7 @@ export class SignupComponent implements OnInit {
 
   sendData(){
     if(this.form.valid){
-      this.userService.createAccount({ email: this.form.value.email, password: this.form.value.password }).subscribe({
+      this.userService.createAccount({username: this.form.value.username, email: this.form.value.email, password: this.form.value.password }).subscribe({
         next: (value) => {
           this.router.navigateByUrl('/login');
         },

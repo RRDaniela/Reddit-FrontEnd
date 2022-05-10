@@ -1,8 +1,10 @@
 nav {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   background-color: #1a1a1b;
+  height: max-content;
+  padding: 1%;
 }
 
 .nav-logo {
@@ -60,14 +62,13 @@ input {
 }
 
 .nav-links {
-  display: flex;
-  width: 35rem;
-  flex-direction: row;
+  display: flexbox;
   justify-content: center;
-  align-items: center;
+  width: 100%;
 }
 
 .nav-links ul {
+  padding: 3% 0% 0% 0%;
   margin: 0;
 }
 
@@ -89,4 +90,8 @@ input {
   border-radius: 5px;
   padding: 3%;
   background-color:rgb(88, 88, 88);
+}
+
+.w3-bar-item{
+  padding: 3%;
 }

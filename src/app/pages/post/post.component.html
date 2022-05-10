@@ -3,30 +3,26 @@
         <mat-card-title>{{postTitle}}</mat-card-title>
         <mat-card-subtitle>{{postOwner}}</mat-card-subtitle>
         <p>{{postBody}}</p>
-        <br>
-        <li *ngFor="let element of comments" class="commentContainer">
-            <p>{{element.body}}</p>
-        </li>
+        <form [formGroup]="form" (submit)="sendData()">
+            <div>
+                <label for="description" class="w-100">Comment this post: 
+                    <div>
+                        <textarea type="text" formControlName="body" placeholder="What are your thoughts?"></textarea>
+                    </div>
+                </label>
+            </div>
+                <button class="subButton" type="submit" >Submit</button>
+        </form>
     </mat-card>
-
-    
-    
-    
+    <mat-card *ngFor="let element of comments" class="postContainer">
+        <div *ngIf="element.owner then getName(element.owner)">
+            <mat-card-subtitle>getName(element.owner)</mat-card-subtitle>
+        </div>
+        <p>{{element.body}}</p> 
+        <mat-card-actions>
+            <button mat-button (click)="downvote(element._id)">⇩</button>
+            <a class="voteCounter">{{element.upvotes - element.downvotes}}</a>
+            <button mat-button (click)="upvote(element._id)">⇧</button>
+        </mat-card-actions>
+    </mat-card>
 </div>
-
-<!--<div class="posts" *ngIf="!loading" >
-        <ul>
-            <li *ngFor="let element of posts" class="postContainer">
-            <mat-card class="post-card">
-                <mat-card-title><a [routerLink]="['/posts', element._id]">{{element.title}}</a></mat-card-title>
-                <mat-card-subtitle><a [routerLink]="['/subreddint' , element.subreddint.name]">r/{{element.subreddint.name}}</a></mat-card-subtitle>
-                <mat-card-actions>
-                    <button mat-button (click)="downvote(element._id)">⇩</button>
-                    <a class="voteCounter">{{element.upvotes - element.downvotes}}</a>
-                    <button mat-button (click)="upvote(element._id)">⇧</button>
-                </mat-card-actions>
-                </mat-card>    
-        </li>  
-        </ul> 
-        
-    </div>-->

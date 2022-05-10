@@ -20,6 +20,7 @@ import { CreateSubredditComponent } from './forms/create-subreddit/create-subred
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
 import { PostComponent } from './pages/post/post.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { PostComponent } from './pages/post/post.component';
     CreatePostComponent,
     CreateSubredditComponent,
     PostComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

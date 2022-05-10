@@ -28,7 +28,6 @@ export class CreatePostComponent implements OnInit {
   ngOnInit(): void {}
 
   sendData() {
-    console.log('YOOO')
     console.log(this.form.valid)
     console.log(this.form.value)
     if (this.form.valid) {
