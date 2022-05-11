@@ -7,6 +7,7 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { CommentsService } from 'src/app/shared/services/comments.service';
 import { Directive, Output, EventEmitter, Input, SimpleChange} from '@angular/core';
 import { UserService } from 'src/app/shared/services/user.service';
+import { FooterComponent } from 'src/app/layout/footer/footer.component';
 
 @Component({
   selector: 'app-post',
@@ -19,13 +20,14 @@ export class PostComponent implements OnInit {
   postId: string='';
   commentId: string='';
   post: any=[];
-  comments: any[] = [];
+  comments: any = [];
   postOwner: string=''; 
   postTitle: string='';
   postBody: string ='';
   item:string='';
   userName: any=[];
-  
+  commentOwner: string='';
+  owner: string='';
 
   constructor(
     private router: Router,
@@ -76,21 +78,14 @@ export class PostComponent implements OnInit {
     })
   }
 
-  getName(id:string){
-    this.getUser(id);
-    console.log(this.userName);
-    return "Danny";
-  }
-
   getUser(id:string){
-    this.userService.getUserById(id).subscribe({
-      next: (value) => {
-        this.userName = value;
-      },
-      error:(err)=>{
-        console.log(err);
-      }
-    })
+    this.userService.getUserById(id).subscribe(response => {
+      this.userName=response;
+      return this.userName;
+    }, err => {
+      console.log(err);
+    }
+    )
   }
 
   getPost(id:string){
@@ -100,8 +95,10 @@ export class PostComponent implements OnInit {
         this.postTitle = this.post._doc.title;
         this.postBody = this.post._doc.body
         this.comments = this.post.comments;
-        this.postOwner = this.post._doc.owner;
-        console.log(this.comments);
+        this.comments.forEach((element : any) => 
+          console.log(this.getUser(element.owner)));
+          //element.owner = this.getUser(element.owner));
+        this.getUser(this.post._doc.owner);
       },
       error:(err)=>{
         console.log(err);
