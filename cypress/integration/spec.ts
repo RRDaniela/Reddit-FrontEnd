@@ -1,12 +1,12 @@
-/*describe('My First Test', () => {
+describe('My First Test', () => {
   it('Visits the initial project page', () => {
     cy.visit('/posts');
     cy.contains('Reddint');
   })
-})*/
+})
 
 
-/*describe('Login Test', () => {
+describe('Login Test', () => {
   it('redirect to posts', () => {
     cy.visit('/posts')
     cy.get('a[name="login"]').first().click();
@@ -15,7 +15,7 @@
     cy.get('button').first().click();
     cy.visit('/posts')
   })
-})*/
+})
 
 describe('Sign up', () => {
   it('sign up a new user', () => {
