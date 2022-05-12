@@ -3,12 +3,19 @@ import { BehaviorSubject } from 'rxjs';
 import jwtcode from 'jwt-decode';
 
 
+interface IDecodedToken {
+  exp: number;
+  iat: number;
+  email: string;
+  userId: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  userToken: string='';
+  userToken: IDecodedToken | null = null;
 
   loginStatus:BehaviorSubject<boolean>= new BehaviorSubject<boolean>(false);
 
@@ -21,7 +28,7 @@ export class AuthService {
   }
 
   decodeToken(){
-    this.userToken = this.getDecodedAccessToken(this.get());
+    this.userToken = this.getDecodedAccessToken(this.get()) as IDecodedToken;
   }
 
   getDecodedAccessToken(token: string): any {
@@ -31,7 +38,6 @@ export class AuthService {
       return null;
     }
   }
-
 
   isLoggedIn():boolean{
     return !!localStorage.getItem('token');

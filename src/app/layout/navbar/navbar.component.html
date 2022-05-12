@@ -1,30 +1,25 @@
 <nav>
-  <link href='https://fonts.googleapis.com/css?family=Metal Mania' rel='stylesheet'>
-  <div class="nav-logo">
-    <img src="assets/logo.png" alt="logo" class="nav-logo-img" />
+    <link href='https://fonts.googleapis.com/css?family=Metal Mania' rel='stylesheet'>
+    <div class="nav-logo">
+        <img src="assets/logo.png" alt="logo" class="nav-logo-img" />
 
-    <a class="nav-logo-title" routerLink="posts">Reddin't</a>
-  </div>
+        <a class="nav-logo-title" routerLink="posts">Reddin't</a>
+    </div>
 
-  <div class="nav-search">
-    <form [formGroup]="form" (onsubmit)="(search)">
-      <input formControlName="search" type="text" placeholder="Search..." />
-      <button  class="nav-search--button" (click)="search()">Search</button>
-    </form>
-  </div>
+    <div class="nav-search">
+        <form [formGroup]="form" (onsubmit)="(search)">
+            <input formControlName="search" type="text" placeholder="Search..." />
+            <button class="nav-search--button" (click)="search()">Search</button>
+        </form>
+    </div>
 
-  <div class="nav-links">
-    <ul>
-      <li>
-        <a *ngIf="!isLogged()" routerLink="signup" class="w3-bar-item"> Sign up </a>
-      </li>
-      <li>
-        <a
-          *ngIf="!isLogged()"
-          routerLink="login"
-          style="text-decoration: none"
-          class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
-          >Log in</a
+    <div class="nav-links">
+        <ul>
+            <li>
+                <a *ngIf="!isLogged()" routerLink="signup" class="w3-bar-item"> Sign up </a>
+            </li>
+            <li>
+                <a *ngIf="!isLogged()" routerLink="login" style="text-decoration: none" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Log in</a
         >
       </li>
       <li>
@@ -38,10 +33,10 @@
       </li>
       <li>
         <a *ngIf="isLogged()" (click)="logout()" href="#" class="w3-bar-item">Cerrar sesión</a>
-      </li>
-      <li>
-        <a *ngIf="isLogged()" routerLink="login" class="w3-bar-item">Mi Perfil</a>
-      </li>
-    </ul>
-  </div>
+            </li>
+            <li>
+                <a *ngIf="isLogged()" [routerLink]="'profile/'+getId()" class="w3-bar-item">Mi Perfil</a>
+            </li>
+        </ul>
+    </div>
 </nav>

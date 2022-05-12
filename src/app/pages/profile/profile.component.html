@@ -1,9 +1,15 @@
 <div class="gdiv">
-    <mat-card class="postContainer">
-        <img src="https://i.guim.co.uk/img/media/02c5fc2b42591243e6292fc83f8a97ed78807b57/198_0_2000_1200/master/2000.jpg?width=465&quality=45&auto=format&fit=max&dpr=2&s=13cd9b71c561176b4d0e471eb8f86f4a" alt="alien" class="profileImage">
+    <div class="form-group">
+        <label for="file">Choose File</label>
+        <input type="file" id="file" (change)="handleFileInput($event)" accept="image/png, image/gif, image/jpeg">
+        <button (click)="uploadFile()">Actualizar</button>
+    </div>
+
+    <mat-card class="postContainer" *ngIf="user !== null">
+        <img [src]="user.avatar" alt="alien" class="profileImage" />
         <div class="text">
-            <mat-card-title>Claudiokk</mat-card-title>
-            <mat-card-subtitle>karma: 0</mat-card-subtitle>
+            <mat-card-title>{{ user.username }}</mat-card-title>
+            <mat-card-subtitle>karma: {{ user.karma }}</mat-card-subtitle>
         </div>
     </mat-card>
-</div> 
+</div>
