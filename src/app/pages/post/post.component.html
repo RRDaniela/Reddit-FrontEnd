@@ -14,10 +14,8 @@
                 <button class="subButton" type="submit" >Submit</button>
         </form>
     </mat-card>
-    <mat-card *ngFor="let element of comments" class="postContainer">
-            <div *ngFor="let owner of commentOwner">
-                <mat-card-subtitle>{{owner}}</mat-card-subtitle>
-            </div>
+    <mat-card *ngFor="let element of comments; let i = index" class="postContainer">
+            <mat-card-subtitle>{{commentOwner[i]}}</mat-card-subtitle>
             <p>{{element.body}}</p> 
         <mat-card-actions>
             <button mat-button (click)="downvote(element._id)">⇩</button>
