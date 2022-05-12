@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import jwtcode from 'jwt-decode';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  userToken: string='';
 
   loginStatus:BehaviorSubject<boolean>= new BehaviorSubject<boolean>(false);
 
@@ -16,6 +19,19 @@ export class AuthService {
   get(): string{
     return localStorage.getItem('token') || '';
   }
+
+  decodeToken(){
+    this.userToken = this.getDecodedAccessToken(this.get());
+  }
+
+  getDecodedAccessToken(token: string): any {
+    try {
+      return jwtcode(token);
+    } catch (Error) {
+      return null;
+    }
+  }
+
 
   isLoggedIn():boolean{
     return !!localStorage.getItem('token');

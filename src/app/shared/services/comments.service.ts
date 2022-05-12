@@ -32,19 +32,20 @@ export class CommentsService {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${jwt}`
       })
-      return this.http.post('http://localhost:3000/comments', comment, {headers});
+      return this.http.post('http://ec2-18-232-174-60.compute-1.amazonaws.com:3000/api/v1//comments', comment, {headers});
       }
 
   getAllComments(id: string) {
-    return this.http.get<IComment[]>(`http://localhost:3000/comments/${id}`);
+    return this.http.get<IComment[]>(`http://ec2-18-232-174-60.compute-1.amazonaws.com:3000/api/v1//comments/${id}`);
   }
 
+
   upvote(id: string) {
-    return this.http.put(`http://localhost:3000/comments/upvote/${id}`, {});
+    return this.http.put(`http://ec2-18-232-174-60.compute-1.amazonaws.com:3000/api/v1//comments/upvote/${id}`, {});
   }
 
   downvote(id: string) {
-    return this.http.put(`http://localhost:3000/comments/downvote/${id}`, {});
+    return this.http.put(`http://ec2-18-232-174-60.compute-1.amazonaws.com:3000/api/v1//comments/downvote/${id}`, {});
   }
     
 }

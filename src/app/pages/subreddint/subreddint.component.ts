@@ -50,6 +50,14 @@ export class SubreddintComponent implements OnInit {
     });
   }
 
+  join(){
+
+  }
+
+  leave(){
+
+  }
+
   upvote(id: string) {
     this.postService.upvote(id).subscribe({
       next: (value) => {

@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  userName: string='';
 
   constructor() { }
 
@@ -13,3 +14,13 @@ export class ProfileComponent implements OnInit {
   }
 
 }
+
+/*ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      console.log(params['name']);
+      this.subreddintName = params['name'];
+      this.subreddintNamelow = 'r/' + this.subreddintName.toLowerCase();
+    });
+
+    this.getPosts(this.subreddintName);
+  }*/ 

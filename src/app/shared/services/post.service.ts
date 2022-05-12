@@ -29,23 +29,23 @@ export class PostService {
   constructor(private http: HttpClient) {}
 
   getAllPosts() {
-    return this.http.get<IPost[]>('http://localhost:3000/posts');
+    return this.http.get<IPost[]>('http://ec2-18-232-174-60.compute-1.amazonaws.com:3000/api/v1//posts');
   }
   
   getOnePost(id:string){
-    return this.http.get(`http://localhost:3000/posts/${id}`, {});
+    return this.http.get(`http://ec2-18-232-174-60.compute-1.amazonaws.com:3000/api/v1//posts/${id}`, {});
   }
 
   getSubreddintPosts(name: string) {
-    return this.http.get<IPost[]>('http://localhost:3000/api/subreddint/:name');
+    return this.http.get<IPost[]>('http://ec2-18-232-174-60.compute-1.amazonaws.com:3000/api/v1//api/subreddint/:name');
   }
 
   upvote(id: string) {
-    return this.http.post(`http://localhost:3000/posts/${id}/upvote`, {});
+    return this.http.post(`http://ec2-18-232-174-60.compute-1.amazonaws.com:3000/api/v1//posts/${id}/upvote`, {});
   }
 
   downvote(id: string) {
-    return this.http.post(`http://localhost:3000/posts/${id}/downvote`, {});
+    return this.http.post(`http://ec2-18-232-174-60.compute-1.amazonaws.com:3000/api/v1//posts/${id}/downvote`, {});
   }
 
   create(post: ICreatePost) {
@@ -57,6 +57,6 @@ export class PostService {
       'Authorization': `Bearer ${jwt}`
     }) 
 
-    return this.http.post('http://localhost:3000/posts', post, {headers});
+    return this.http.post('http://ec2-18-232-174-60.compute-1.amazonaws.com:3000/api/v1//posts', post, {headers});
   }
 }

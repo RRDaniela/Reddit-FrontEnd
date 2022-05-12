@@ -15,7 +15,9 @@
         </form>
     </mat-card>
     <mat-card *ngFor="let element of comments" class="postContainer">
-            <mat-card-subtitle>{{postOwner}}</mat-card-subtitle>
+            <div *ngFor="let owner of commentOwner">
+                <mat-card-subtitle>{{owner}}</mat-card-subtitle>
+            </div>
             <p>{{element.body}}</p> 
         <mat-card-actions>
             <button mat-button (click)="downvote(element._id)">⇩</button>

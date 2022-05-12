@@ -32,12 +32,16 @@ export class SubreddintsService {
       'Authorization': `Bearer ${jwt}`
     })
 
-    return this.http.post('http://localhost:3000/subreddints', subreddint, { headers });
+    return this.http.post('http://ec2-18-232-174-60.compute-1.amazonaws.com:3000/api/v1/subreddints', subreddint, { headers });
   }
 
   getPosts(name: string) {
     console.log(name);
-    return this.http.get<IPost[]>(`http://localhost:3000/subreddints/${name}/posts`);
+    return this.http.get<IPost[]>(`http://ec2-18-232-174-60.compute-1.amazonaws.com:3000/api/v1/subreddints/${name}/posts`);
+  }
+
+  joinSub(){
+    
   }
 
 }

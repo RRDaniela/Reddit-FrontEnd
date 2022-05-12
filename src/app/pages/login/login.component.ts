@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/services/user.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 
 
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder, 
     private router:Router,
     private userService: UserService,
+    private authService: AuthService
     ) {
     this.form = this.formBuilder.group({
       'email': ['',Validators.email],
@@ -35,6 +37,7 @@ export class LoginComponent implements OnInit {
       this.userService.login({ email: this.form.value.email, password: this.form.value.password }).subscribe({
         next: (value) => {
           this.router.navigate([`posts`]);  
+          console.log(this.authService.userToken)
         },
         error: (error) => {
           this.error = error;
