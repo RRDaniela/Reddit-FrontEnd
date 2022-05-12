@@ -16,12 +16,13 @@
   <div class="nav-links">
     <ul>
       <li>
-        <a *ngIf="!isLogged()" routerLink="signup" class="w3-bar-item"> Sign up </a>
+        <a *ngIf="!isLogged()" routerLink="signup" name="signup" class="w3-bar-item"> Sign up </a>
       </li>
       <li>
         <a
           *ngIf="!isLogged()"
           routerLink="login"
+          name="login"
           style="text-decoration: none"
           class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
           >Log in</a
@@ -31,6 +32,7 @@
         <a
           *ngIf="isLogged()"
           routerLink="create-subreddint"
+          name="createSub"
           style="text-decoration: none"
           class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white create"
           >Create subreddint</a
