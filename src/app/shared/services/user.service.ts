@@ -19,6 +19,17 @@ interface ITokenResponse {
   token: string;
 }
 
+interface IUserSchema {
+  email: string;
+  username:string;
+  karma: number;
+  avatar: {
+      url: string;
+      fileName: string;
+  };
+  insignia?: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -39,7 +50,14 @@ export class UserService {
   }
 
   getUserById(id:string){
-    return this.http.get(`http://ec2-18-232-174-60.compute-1.amazonaws.com:3000/api/v1/users/${id}`);
+    return this.http.get<IUserSchema>(`http://ec2-18-232-174-60.compute-1.amazonaws.com:3000/api/v1/users/${id}`);
+  }
+
+  uploadAvatar(fileToUpload: File, id:string) {
+    const formData: FormData = new FormData();
+    formData.append('avatar', fileToUpload, fileToUpload.name);
+    return this.http
+      .put(`http://ec2-18-232-174-60.compute-1.amazonaws.com:3000/api/v1/users/avatar/${id}`, formData, { headers: { Authorization: `Bearer ${this.authService.get()}` } });
   }
 
 }

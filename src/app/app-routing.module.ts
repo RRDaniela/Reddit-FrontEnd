@@ -19,10 +19,9 @@ const routes: Routes = [
   { path: 'subreddint/:name', component: SubreddintComponent },
   { path: 'create-post/:name', component: CreatePostComponent },
   { path: 'create-subreddint', component:CreateSubredditComponent},
-  { path: 'posts/:id', component:PostComponent},
-  { path: 'comments/:id', component:PostComponent},
-  { path: 'profile/:id', component:ProfileComponent}
-
+  { path: 'posts/:id', component: PostComponent},
+  { path: 'comments/:id', component: PostComponent},
+  { path: 'profile/:id', component: ProfileComponent},
 ];
 
 @NgModule({

@@ -47,4 +47,8 @@ export class NavbarComponent implements OnInit {
     return this.authService.isLoggedIn();
   }
 
+  getId(){
+    return this.authService.userToken?.userId;
+  }
+
 }
